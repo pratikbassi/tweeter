@@ -30,31 +30,42 @@ const createTweetElement = (tweetData) => {
 }
 
 const renderTweets = (tweets) => {
-  for(let tweet of tweets) {
+  for(let tweet of tweets.reverse()) {
     $('#tweets-container').append(createTweetElement(tweet))
   }
 }
 
 const loadTweets = () => {
-  $(document).ready( function(){
-    $.ajax({
-      type: 'GET',
-      url: '/tweets/'
-    }) .then( (data) => {
-      console.log(data);
-    })
+
+  let promise = new Promise ((resolve, reject) => {
+      $(document).ready( () => {
+        $.ajax({
+          type: 'GET',
+          url: '/tweets/'
+        })
+        .then( (data) => {
+          resolve(data);
+        })
+      })
+    }
+  ) 
+  promise.then( (data) => {
+    //console.log(data)
+    return(data);
+  } ).catch( (reason) => {
+    console.log(reason);
   })
+
+  return promise;
 }
 
-loadTweets()
 
 
 $(document).ready( function(){
   const $button = $('.submitTweet');
+  //$button.preventDefault();
   const $text = $('.inputField')
-  console.log('worked!')
   $button.on('click', function () {
-    console.log($text.serialize())
     $.ajax({
       type: 'POST',
       url: '/tweets/',
@@ -69,7 +80,7 @@ $(document).ready( function(){
 
 
 $(document).ready(function() {
-  renderTweets(data);
+  loadTweets().then( (data) => {renderTweets(data)} );
 })
 
 
