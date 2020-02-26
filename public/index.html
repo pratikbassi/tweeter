@@ -48,48 +48,16 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets">
-          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <textarea class='inputField' name="text" placeholder="What are you humming about?"></textarea>
           <footer class="tweet-footer">
             <span class="counter">140</span>
-            <input type="submit" value="Tweet">
+            <input class="submitTweet" type="submit" value="Tweet">
           </footer>
         </form>
       </section>
 
-      <section class='tweet-dislpay'>
-        <article class='old-tweet'>
-          <header>
-            <img class='profile-pic' src="" alt=""> ge</img>
-            <p2 class='name' >name</p2>
-            <p2 class='name-id'>name-id</p2>
-          </header>
-          <p class='body'> 
-            tweet body goes here! Hello world
-          </p>
-          <footer >
-            <h6 class='tweet-date'>tweet-date</h6>
-            <img name='tweet-icons' src="" alt="">test </img>
-          </footer>
-
-        </article>
-      </section>
-
-      <section class='tweet-dislpay'>
-        <article class='old-tweet'>
-          <header>
-            <img class='profile-pic' src="" alt=""> ge</img>
-            <p2 class='name' >name</p2>
-            <p2 class='name-id'>name-id</p2>
-          </header>
-          <p class='body'> 
-            tweet body goes here! Hello world
-          </p>
-          <footer >
-            <h6 class='tweet-date'>tweet-date</h6>
-            <img name='tweet-icons' src="" alt="">test </img>
-          </footer>
-
-        </article>
+      <section id='tweets-container'>
+        
       </section>
 
     </main>

@@ -1,4 +1,4 @@
-.tweet-display {
+#tweets-container {
   position: relative;
   background-color: #f4f1ec;
   display: flexbox;
