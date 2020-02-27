@@ -18,7 +18,7 @@ main .toTop:active {
 }
 
 main .toTop .arrow {
-  width: 50px;
-  height: auto;
+  width: 50px ;
+  height: 10% ;
   transform: rotate(270deg);
 }
