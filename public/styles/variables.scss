@@ -1,0 +1,333 @@
+$white: #f4f1ec;
+$purple: #b181cc;
+$grey: #545149;
+$yellow: #d3b24e;
+$green: #6dc97f;
+
+$body-stack: 'Source Sans Pro',sans-serif ;
+$head-stack: 'Bungee',sans-serif;
+
+$rotateStart: rotateY(0deg);
+$rotateEnd: rotateY(360deg);
+$animationDef: writing 2s linear infinite;
+
+//DEFAULT 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+ 
+
+body {
+  font-family: $body-stack;
+  color: $grey;
+  background-color: $white;
+  font-size: 24px;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+main {
+  margin: auto;
+  width: 90%;
+  background-color: $white;
+  position: relative;
+  top: 120px;
+  display: inline-block;
+
+  .toTop {
+    float: right;
+    position: fixed;
+    background-color: $green;
+    color: $green ;
+    border: 0px;
+    outline: none;
+    bottom: 40px;
+    right: 120px;
+    justify-content: center;
+    align-content: center;
+    border-radius: 5000px;
+    box-shadow: grey 2px 2px 2px;
+    .arrow {
+      width: 50px ;
+      height: 10% ;
+      transform: rotate(270deg);
+    }
+  }
+  .toTop:active {
+    box-shadow: grey 0px 0px 5px 5px;
+  }
+  
+
+}
+//DEFAULT ENDS
+
+nav { //TOP NAVBAR
+  font-family: $head-stack;
+  position: fixed;
+  width: 100%;
+  height: 120px;
+  background-color:  none;
+  color: $white ;
+  padding: 1.5em;
+  z-index: 100;
+  text-align: left;
+
+  button { //Pen button
+    float: right;
+    background-color: $purple;
+    border: 0px;
+    outline: none;
+    border-radius: 12px ;
+    
+    .pen { //pen img
+      width: 50px;
+      height: 5%;
+    
+    }
+    @keyframes writing { //animation for pen for all different browsers
+      from {
+        transform: $rotateStart;
+        -o-transform: $rotateStart;
+        -ms-transform: $rotateStart;
+        -moz-transform: $rotateStart;
+        -webkit-transform: $rotateStart;
+      }
+      to {
+        transform: $rotateEnd;
+        -o-transform: $rotateEnd;
+        -ms-transform: $rotateEnd;
+        -moz-transform: $rotateEnd;
+        -webkit-transform: $rotateEnd;
+      }
+    }
+    .writing {
+      -webkit-animation: $animationDef;
+      -moz-animation: $animationDef;
+      -ms-animation: $animationDef;
+      -o-animation: $animationDef;
+      animation: $animationDef;
+    }
+
+  }
+  button:hover { //button animations
+    box-shadow: rgb(184, 184, 184) 0px 0px 5px 5px;
+  }
+  button:active {
+    box-shadow: grey 0px 0px 5px 5px;
+  }
+  button:active .container .new-tweet {
+    visibility: hidden;
+  }
+  
+}
+
+header { //header mobile
+  height: 400px;
+  width: 100%;
+  position: relative;
+  background-color: $yellow;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  text-align: center;
+  .profile { //profile photo
+    position: relative;
+    top: 25px;
+  }
+  
+}
+
+
+
+.new-tweet { //new tweet
+  width: 100%;
+  position: relative;
+  align-self: center;
+  text-align: left;
+  background-color: $white;
+  top: auto;
+  textarea { //text input area
+    border: 0px;
+    border-bottom: 3px solid $grey;
+    margin: 0 px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 10px;
+    font-family: $body-stack;
+    color: $grey;
+    width: 100%;
+    outline: none;
+    resize: none;
+    background-color: inherit;
+    height: 50px;
+  }
+  .tweet-footer { //footer area
+    margin-top: 10px;
+    .counter { //character counter
+      float: right;
+      font-family: $head-stack;
+      color: $grey;
+      margin-right: 0px;
+    }
+    input { //the submit button
+      background-color: $purple;
+      color: $white;
+      font-family: $head-stack;
+      border-width: 0px;
+      border-color: black;
+      font-size: large;
+      padding: 5px;
+      text-align: left;
+      outline: none;
+    }
+    input:hover { //input button animations
+      box-shadow: rgb(165, 164, 164) 0px 0px 5px 5px;
+    }
+    input:active {
+      box-shadow: grey 0px 0px 5px 5px;
+    }
+  }
+  .alert { //error message styling
+    float: center;
+    text-align: center;
+    justify-self: center;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    color: red;
+    background-color: rgba(255, 121, 121, 0.205);
+    opacity: 90%;
+    border: red;
+    border-width: 10px;
+    z-index: 100;
+    width: 90%;
+  }
+}
+
+#tweets-container {
+  position: relative;
+  background-color: $white;
+  display: flexbox;
+  flex-direction: column;
+  .old-tweet {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    color: $grey;
+    border: 3px solid $grey;
+    opacity: .5;
+    p {
+      margin: 10px;
+      width: 95%;
+      display: flex;
+      padding: 5px;
+      padding-bottom: 10px;
+      border-bottom: solid 3px;
+      align-self:  center;
+      font-size: large;
+      background-color: $white;
+    }
+    p2 {
+      margin:10px
+    }
+    h6 {
+      font-family: $body-stack;
+      margin: 10px;
+    }
+    footer {
+      width: 95%;  
+      margin: 10px;
+      background-color: $white;
+      padding: 5px;
+      font-size: small;
+      font-family: $body-stack;
+      display: flex;
+      direction: ltr;
+      justify-content: flex-start;
+      img {
+        justify-self: end;
+        margin-left: auto;  
+      }
+    }
+    header {
+      width: 95%;
+      margin: 10px;
+      height: fit-content;
+      top: unset;
+      background-color: $white;
+      padding-top: 5px;
+      font-size: medium;
+      display: flex;
+      direction: ltr;
+      justify-content: flex-start;
+    }
+    img {
+      margin: 10px;
+      justify-self: start;
+    }
+    .name {
+      font-family: $body-stack;
+      justify-self: left;
+    }
+    .name-id {
+      font-family: $body-stack;
+      justify-self: end;
+      margin-left: auto;
+      visibility: hidden ;
+    }
+  } 
+  .old-tweet:hover {
+    box-shadow: 5px 5px grey;
+    font-style: bolder;
+    opacity: 1;
+  }
+  .old-tweet:hover .name-id{
+    visibility: visible;
+    opacity: .5;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  main {
+    margin-top: 2.75%;
+    margin-right: 5% ;
+    width: 40%;
+    float: right;
+  } 
+  header {
+    top: 120px ;
+    margin: 5% ;
+    width: 44%;
+    float: left;
+  }
+  nav {
+    background-color: $purple;
+  }
+
+  nav button {
+    background-color: $yellow;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
