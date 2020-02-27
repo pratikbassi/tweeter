@@ -13,7 +13,8 @@ $(document).ready(function() {
 
 $(document).ready (function() {
   $('.toTop').hide();
-  let hidden = false;
+  $('.new-tweet').hide();
+  let hidden = true;
 
   $(document).on('scroll', function () {
 
