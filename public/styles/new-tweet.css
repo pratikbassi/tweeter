@@ -56,3 +56,11 @@ input:hover {
 input:active {
   box-shadow: grey 0px 0px 5px 5px;
 }
+
+.alert {
+  text-align: center;
+  color: red;
+  opacity: 90%;
+  border: red;
+  border-width: 2px;
+}
