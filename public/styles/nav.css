@@ -18,16 +18,41 @@ nav button {
 
 }
 nav button .pen {
-  float: right;
   width: 50px;
   height: 5%;
-  animation-duration: 4s;
+
+}
+
+@keyframes writing {
+ 
+  from {
+    transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+		-ms-transform: rotateY(0deg);
+		-moz-transform: rotateY(0deg);
+		-webkit-transform: rotateY(0deg);
+
+  }
+  to {
+    transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+		-ms-transform: rotateY(360deg);
+		-moz-transform: rotateY(360deg);
+		-webkit-transform: rotateY(360deg);
+  }
+}
+
+.writing {
+  -webkit-animation: writing 2s linear infinite;
+	-moz-animation: writing 2s linear infinite;
+	-ms-animation: writing 2s linear infinite;
+	-o-animation: writing 2s linear infinite;
+	animation: writing 2s linear infinite;
 }
 
 
-nav button:hover .pen {
-  transform: rotateY(180deg);
-  transition: transform .5s;
+nav button:hover {
+  box-shadow: rgb(184, 184, 184) 0px 0px 5px 5px;
 }
 
 nav button:active {

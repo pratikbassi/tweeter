@@ -11,8 +11,39 @@ $(document).ready(function() {
     }) 
 })
 
+$(document).ready (function() {
+  $('.toTop').hide();
+  let hidden = false;
 
+  $(document).on('scroll', function () {
 
+    let height = $(window).scrollTop()
+    if(height > 520){
+      $('.scroller').hide();
+      $('.toTop').show();
+    }
+    
+    if(height < 520) {
+      $('.scroller').show();
+      $('.toTop').hide();
+    }
+  })
 
-// $($($(this).children()[1]).children()).children()[0] gets counter html tag
+  $('.toTop').on('click', function() {
+    $('.new-tweet').slideDown( 500, 'swing')
+    hidden = false;
+    window.scrollTo(0,0 )
+  })
+
+  $(".scroller").click(function() {
+    if(hidden === false) {
+      $('.new-tweet').slideUp( 500, 'swing')
+      hidden = true;
+    } else {
+      $('.new-tweet').slideDown( 500, 'swing')
+      hidden = false;
+    }
+  });
+}) 
+
 

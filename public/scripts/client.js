@@ -8,8 +8,8 @@
 
 
 const createTweetElement = (tweetData) => {
-  let date = new Date(tweetData['created_at'])
-
+  let date = tweetData['created_at']
+  let daysPassed = Math.round((Date.now() - date) / 86400000)
   let $tweet = `
   <article class='old-tweet'>
           <header>
@@ -21,7 +21,7 @@ const createTweetElement = (tweetData) => {
             ${escape(tweetData['content']['text'])}
           </p>
           <footer >
-            <h6 class='tweet-date'>${date.toString()}</h6>
+            <h6 class='tweet-date'>${daysPassed} Days Ago</h6>
             <img name='tweet-icons' src="" alt="">test </img>
           </footer>
 
@@ -69,30 +69,19 @@ const loadTweets = () => {
   return promise;
 }
 
-$(document).ready (function() {
-  let hidden = false;
-
-  $(".scroller").click(function() {
-    if(hidden === false) {
-      $('.new-tweet').slideUp( 500, 'swing')
-      hidden = true;
-    } else {
-      $('.new-tweet').slideDown( 500, 'swing')
-      hidden = false;
-    }
-  });
-}) 
-
-
-
 
 $(document).ready( function(){
+  $('.alert').hide();
   const $button = $('.submitTweet');
   let $text = $('.inputField')
+
+  let sassyEmpty = ['This is empty!', 'Come on, put something in here!', 'Only boring people don\'t put anything in their tweets!', 'What are you, lame? Put something in here', 'You tried to tweet nothing! That\'s boring!', "This error message was specially made to tell you to put something in this tweet!", "I didn't get paid to make this site! You clearly didn't get paid to write!"];
+  let sassyFull = ['This is too full! Less than 141 characters pls thx', 'Ugh, I feel too full - just like thanksgiving', 'No mom, I don\'t want any more characters!', 'I\'m gonna pop! Take some characters out!', 'You\'re not thaaaaat interesting bub, take some chars out', 'A wise man once said:"Tweets were made to be shorter than 140 chars"',"Less characters, more time for other activities! It's a win-win!" ];
 
   $button.on('click', function () {
     event.preventDefault()    
     if($text.val().length < 141 && $text.val().length > 0) {
+      $('.alert').slideUp( 300, 'swing')
       $.ajax({
         type: 'POST',
         url: '/tweets/',
@@ -106,9 +95,13 @@ $(document).ready( function(){
       
 
     } else if ($text.val().length > 140) {
-      alert("The text field is too full!")
+      $('.alert').text(`${sassyFull[Math.floor(Math.random() * sassyFull.length)]}`)
+      $('.alert').slideDown( 500, 'swing')
+      
     } else {
-      alert('The field is empty!')
+      $('.alert').text(`${sassyEmpty[Math.floor(Math.random() * sassyEmpty.length)]}`)
+      $('.alert').slideDown( 500, 'swing')
+    
     }
     
   })
