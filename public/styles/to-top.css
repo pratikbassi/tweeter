@@ -1,0 +1,24 @@
+main .toTop {
+  float: right;
+  position: fixed;
+  background-color: #6dc97f;
+  color: #6dc97f ;
+  border: 0px;
+  outline: none;
+  bottom: 40px;
+  right: 120px;
+  justify-content: center;
+  align-content: center;
+  border-radius: 5000px;
+  box-shadow: grey 2px 2px 2px;
+}
+
+main .toTop:active {
+  box-shadow: grey 0px 0px 5px 5px;
+}
+
+main .toTop .arrow {
+  width: 50px;
+  height: auto;
+  transform: rotate(270deg);
+}
