@@ -15,3 +15,4 @@ $(document).ready(function() {
 
 
 // $($($(this).children()[1]).children()).children()[0] gets counter html tag
+

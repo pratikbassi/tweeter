@@ -6,6 +6,7 @@
   align-self: center;
   text-align: left;
   background-color: #f4f1ec;
+  top: auto;
 }
 
 textarea {
@@ -37,7 +38,7 @@ textarea {
 }
 
 input {
-  background-color: #4056a1;
+  background-color: #b181cc;
   color: #FFFFFF;
   font-family: 'Bungee',sans-serif;
   border-width: 0px;
@@ -45,4 +46,13 @@ input {
   font-size: large;
   padding: 5px;
   text-align: left;
+  outline: none;
+}
+
+input:hover {
+  box-shadow: rgb(165, 164, 164) 0px 0px 5px 5px;
+}
+
+input:active {
+  box-shadow: grey 0px 0px 5px 5px;
 }

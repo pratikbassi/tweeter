@@ -18,7 +18,7 @@ const createTweetElement = (tweetData) => {
             <p2 class='name-id'>${tweetData['user']['handle']}</p2>
           </header>
           <p class='body'> 
-            ${tweetData['content']['text']}
+            ${escape(tweetData['content']['text'])}
           </p>
           <footer >
             <h6 class='tweet-date'>${date.toString()}</h6>
@@ -30,9 +30,20 @@ const createTweetElement = (tweetData) => {
 }
 
 const renderTweets = (tweets) => {
+  $('#tweets-container').empty()
   for(let tweet of tweets.reverse()) {
     $('#tweets-container').append(createTweetElement(tweet))
   }
+
+  let $button = $('.submitTweet');
+  const $text = $('.inputField')
+  $button.on('click', function() {
+    if ($('.new-tweet').find('.counter').text() >= 0) {
+      $('.new-tweet').find('.counter').text(140);
+      $text.val(function() {return '';})
+    }
+  })
+
 }
 
 const loadTweets = () => {
@@ -50,7 +61,6 @@ const loadTweets = () => {
     }
   ) 
   promise.then( (data) => {
-    //console.log(data)
     return(data);
   } ).catch( (reason) => {
     console.log(reason);
@@ -59,25 +69,56 @@ const loadTweets = () => {
   return promise;
 }
 
+$(document).ready (function() {
+  let hidden = false;
+
+  $(".scroller").click(function() {
+    if(hidden === false) {
+      $('.new-tweet').slideUp( 500, 'swing')
+      hidden = true;
+    } else {
+      $('.new-tweet').slideDown( 500, 'swing')
+      hidden = false;
+    }
+  });
+}) 
+
+
 
 
 $(document).ready( function(){
   const $button = $('.submitTweet');
-  //$button.preventDefault();
-  const $text = $('.inputField')
+  let $text = $('.inputField')
+
   $button.on('click', function () {
-    $.ajax({
-      type: 'POST',
-      url: '/tweets/',
-      data: $text.serialize()
-    })
+    event.preventDefault()    
+    if($text.val().length < 141 && $text.val().length > 0) {
+      $.ajax({
+        type: 'POST',
+        url: '/tweets/',
+        data: $text.serialize()
+      })
+      .done( function() {
+        loadTweets().then( (data2) => { renderTweets(data2)})
+      }
+        
+      )
+      
+
+    } else if ($text.val().length > 140) {
+      alert("The text field is too full!")
+    } else {
+      alert('The field is empty!')
+    }
+    
   })
 
 })
-
-
-
-
+const escape = function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str))
+  return div.innerHTML
+}
 
 $(document).ready(function() {
   loadTweets().then( (data) => {renderTweets(data)} );
