@@ -187,7 +187,6 @@ header {
       margin: 10px; }
     #tweets-container .old-tweet footer {
       width: 95%;
-      margin: 10px;
       background-color: #f4f1ec;
       padding: 5px;
       font-size: small;
@@ -198,6 +197,13 @@ header {
       #tweets-container .old-tweet footer img {
         justify-self: end;
         margin-left: auto; }
+      #tweets-container .old-tweet footer .tweet-icons {
+        justify-self: start;
+        margin-left: auto;
+        display: flex;
+        float: right;
+        font-size: small;
+        visibility: hidden; }
     #tweets-container .old-tweet header {
       width: 95%;
       margin: 10px;
@@ -227,6 +233,9 @@ header {
   #tweets-container .old-tweet:hover .name-id {
     visibility: visible;
     opacity: .5; }
+  #tweets-container .old-tweet:hover footer .tweet-icons {
+    visibility: visible;
+    opacity: 1; }
 
 @media only screen and (min-width: 1024px) {
   main {

@@ -92,9 +92,16 @@
 
 
 
-
+.old-tweet .tweet-icons {
+  visibility: hidden;
+}
 
 .old-tweet:hover .name-id{
+  visibility: visible;
+  opacity: .5;
+}
+
+.old-tweet:hover .tweet-icons{
   visibility: visible;
   opacity: .5;
 }

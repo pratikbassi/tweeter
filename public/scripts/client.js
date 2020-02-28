@@ -22,7 +22,7 @@ const createTweetElement = (tweetData) => {
           </p>
           <footer >
             <h6 class='tweet-date'>${daysPassed} Days Ago</h6>
-            <img name='tweet-icons' src="" alt="">test </img>
+            <p3 class='tweet-icons' >🏳♺ 🤍 </p3>
           </footer>
 
         </article> `;

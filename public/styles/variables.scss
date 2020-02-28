@@ -210,12 +210,12 @@ header { //header mobile
   }
 }
 
-#tweets-container {
+#tweets-container { //the tweet container
   position: relative;
   background-color: $white;
   display: flexbox;
   flex-direction: column;
-  .old-tweet {
+  .old-tweet {// each old tweet
     margin-top: 30px;
     margin-bottom: 30px;
     display: flex;
@@ -223,7 +223,7 @@ header { //header mobile
     color: $grey;
     border: 3px solid $grey;
     opacity: .5;
-    p {
+    p { 
       margin: 10px;
       width: 95%;
       display: flex;
@@ -243,7 +243,6 @@ header { //header mobile
     }
     footer {
       width: 95%;  
-      margin: 10px;
       background-color: $white;
       padding: 5px;
       font-size: small;
@@ -254,6 +253,14 @@ header { //header mobile
       img {
         justify-self: end;
         margin-left: auto;  
+      }
+      .tweet-icons {
+        justify-self: start;
+        margin-left: auto;
+        display: flex;
+        float:  right;
+        font-size: small;
+        visibility: hidden;
       }
     }
     header {
@@ -268,7 +275,7 @@ header { //header mobile
       direction: ltr;
       justify-content: flex-start;
     }
-    img {
+    img { //profile pic
       margin: 10px;
       justify-self: start;
     }
@@ -283,7 +290,7 @@ header { //header mobile
       visibility: hidden ;
     }
   } 
-  .old-tweet:hover {
+  .old-tweet:hover { //animations
     box-shadow: 5px 5px grey;
     font-style: bolder;
     opacity: 1;
@@ -291,6 +298,10 @@ header { //header mobile
   .old-tweet:hover .name-id{
     visibility: visible;
     opacity: .5;
+  }
+  .old-tweet:hover footer .tweet-icons{
+    visibility: visible;
+    opacity: 1;
   }
 }
 
