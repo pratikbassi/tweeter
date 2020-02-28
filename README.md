@@ -22,6 +22,6 @@ Website is responsive for desktop screens and mobile devices! All CSS is in the 
 
 Screen shots below!
 
-(https://github.com/pratikbassi/tweeter/blob/master/public/screenshots/Screen%20Shot%202020-02-27%20at%205.19.03%20PM.png)
-(https://github.com/pratikbassi/tweeter/blob/master/public/screenshots/Screen%20Shot%202020-02-27%20at%205.19.33%20PM.png)
-(https://github.com/pratikbassi/tweeter/blob/master/public/screenshots/Screen%20Shot%202020-02-27%20at%205.20.03%20PM.png)
+!['Working Scaling!'](https://github.com/pratikbassi/tweeter/blob/master/public/screenshots/Screen%20Shot%202020-02-27%20at%205.19.03%20PM.png)
+![Fun reactive design!](https://github.com/pratikbassi/tweeter/blob/master/public/screenshots/Screen%20Shot%202020-02-27%20at%205.19.33%20PM.png)
+![Randomly generated error messages!](https://github.com/pratikbassi/tweeter/blob/master/public/screenshots/Screen%20Shot%202020-02-27%20at%205.20.03%20PM.png)
