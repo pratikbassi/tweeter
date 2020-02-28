@@ -31,7 +31,8 @@ $(document).ready (function() {
   })
 
   $('.toTop').on('click', function() {
-    $('.new-tweet').slideDown( 500, 'swing')
+    $('.new-tweet').slideDown( 500, 'swing', function(){$('.inputField').focus()})
+    $('.new-tweet').focus()
     hidden = false;
     window.scrollTo(0,0 )
   })
@@ -41,7 +42,8 @@ $(document).ready (function() {
       $('.new-tweet').slideUp( 500, 'swing')
       hidden = true;
     } else {
-      $('.new-tweet').slideDown( 500, 'swing')
+      $('.new-tweet').slideDown( 500, 'swing', function(){$('.inputField').focus()})
+
       hidden = false;
     }
   });
